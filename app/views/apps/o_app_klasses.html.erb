@@ -1,0 +1,18 @@
+<% if !app.klasses.empty? then %>
+	<h2> Classes in the app</h2>
+
+	<ul>
+	<% app.klasses.each { |k| %>
+		<li> 
+			<%= k.name %> 
+			<br />
+			<%= link_to 'Show', app_klass_path( app, k ) %> ,
+			<%= link_to 'Edit', edit_app_klass_path(app, k) %> ,
+			<%= link_to 'Destroy', app_klass_path( app, k), 
+				confirm: 'Are you sure?', method: :delete %>
+		</li>
+		
+	<% } %>
+	</ul>
+<% end %>
+

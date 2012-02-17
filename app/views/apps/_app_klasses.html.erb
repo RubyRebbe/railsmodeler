@@ -1,0 +1,31 @@
+<% if !app.klasses.empty? then %>
+	<table>
+		<tr>
+			<th> Classes in app <%= app.name %> </th>
+			<th> Operations </th>
+		</tr>
+
+	<% app.klasses.each { |k| %>
+		<tr> 
+			<td>
+				<%= k.name %> 
+			</td>
+			<td>
+				<%= link_to 'Show', app_klass_path( app, k ) %> ,
+				<%= link_to 'Edit', edit_app_klass_path(app, k) %> ,
+				<%= link_to 'Destroy', app_klass_path( app, k), 
+					confirm: 'Are you sure?', method: :delete %>
+			</td>
+		</tr>
+	<% } %>
+
+		<tr>
+			<td> </td>
+			<td> 
+				<%= link_to 'create a new class in this app', new_app_klass_path( app) %> 
+			</td>
+		</tr>
+
+	</table>
+<% end %>
+

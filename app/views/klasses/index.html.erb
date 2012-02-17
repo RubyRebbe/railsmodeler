@@ -1,0 +1,27 @@
+<h1>Listing klasses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @klasses.each do |klass| %>
+  <tr>
+    <td><%= klass.name %></td>
+    <td><%= klass.description %></td>
+    <td><%= link_to 'Show', app_klass_path( klass.app, klass ) %> </td>
+    <td><%= link_to 'Edit', edit_app_klass_path(klass.app, klass) %></td>
+    <td>
+			<%= link_to 'Destroy', app_klass_path( klass.app, klass), 
+				confirm: 'Are you sure?', method: :delete %>
+		</td>
+  </tr>
+<% end %>
+</table>
+
+
+

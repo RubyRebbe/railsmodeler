@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @attribute.name %>
+</p>
+
+<p>
+  <b>Typus:</b>
+  <%= @attribute.typus %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @attribute.description %>
+</p>
+
+<p>
+  <b>Klass:</b>
+  <%= @attribute.klass %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_klass_attribute_path(@app,  @klass, @attribute) %> |
+<%= link_to 'Back', app_klass_path( @app,  @klass) %>

@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+.simple_form label {
+  float: left;
+  width: 75px; /* was 250px */
+  text-align: right;
+  margin: 2px 10px;
+}
+
+.simple_form div.inputs{
+  margin-bottom: 30px;
+	
+}
+
+.simple_form input[type="text"], .simple_form textarea  {
+	width:  300px;
+}
+
+.input textarea {
+	height:  5em;
+}
+
+table, td, th {
+	border: 2px solid black;
+	border-collapse: collapse;
+	font-family: Arial, Verdana, sans-serif;
+	background-color: #FFFF99; /* very light yellow */
+}
+

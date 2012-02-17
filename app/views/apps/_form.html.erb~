@@ -1,0 +1,14 @@
+<%= simple_form_for @app do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+	<%= f.input :database, :collection => App.databases %>
+	<br />
+  <%= f.button :submit %>
+<% end %>
+
+<br />
+<%= render :partial => "app_klasses", :locals => { :app => @app } %>
+
+<br />
+<br />
+

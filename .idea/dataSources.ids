@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails railsmodeler: production" product="" version="" jdbc-version="" driver-version="" uuid="d8a54254-80f5-4058-805c-bb94be1b7648">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_production</jdbc-url>
+    <user-name>postgres</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails railsmodeler: cucumber" product="" version="" jdbc-version="" driver-version="" uuid="650e17aa-dc80-44bf-bf5a-c63f5aea75d0">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_test</jdbc-url>
+    <user-name>postgres</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails railsmodeler: test" product="" version="" jdbc-version="" driver-version="" uuid="d6871954-7c7a-4c03-990e-a8dbc05b81f9">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_test</jdbc-url>
+    <user-name>postgres</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails railsmodeler: development" product="" version="" jdbc-version="" driver-version="" uuid="6ca36458-a553-4544-95d1-62acadda08a4">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_development</jdbc-url>
+    <user-name>postgres</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

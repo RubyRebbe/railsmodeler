@@ -1,0 +1,32 @@
+<h1>The Rails Apps List</h1>
+<br />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Database</th>
+    <th>Operations</th>
+  </tr>
+
+<% @apps.each do |app| %>
+  <tr>
+    <td><%= app.name %></td>
+    <td><%= app.database %></td>
+    <td>
+			<%= link_to 'Show', app %> ,  
+    	<%= link_to 'Edit', edit_app_path(app) %>, 
+    	<%= link_to 'Destroy', app, confirm: 'Are you sure?', method: :delete %>
+		</td>
+  </tr>
+<% end %>
+
+	<tr>
+		<td> </td>
+		<td> </td>
+		<td> <%= link_to 'New Rails App', new_app_path %> </td>
+	</tr>
+</table>
+
+<br />
+<%= link_to 'back to rails modeler top page', :controller => "rails_modeler" %>
+

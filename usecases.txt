@@ -1,0 +1,32 @@
+Use cases for rmodel-rails meta application
+
+App:
+	The user can create an app
+	The user can destroy an app
+	The user can name the app
+	The user can describe the app
+	The user can associate a database engine with the app
+		via a pull-down menu
+	The user can associate a directory/folder in which the app will live
+	The user can see the rails new command that will generate the application
+	The user can see all of the scaffolding and all of the rails model classes code
+		which will be generated for this application
+
+Klass:
+	The user can create a new class within an App
+	The user can remove a class from an app
+	The user can name the class
+	The user can describe the class
+	The user can see the scaffolding and the rails model class code
+		which will be generated for this class
+
+Attribute:
+	The user can create an attribute within a class in the application
+		An attribute is a (name, type) pair, where type is a rails database type
+	The user can remove an attribute from a class
+	The user can set the name of the attribute
+	The user can select the type of the attribute from a list of
+		rails database scalar types (e.g. string, text, decimal, boolean ...)
+
+
+	

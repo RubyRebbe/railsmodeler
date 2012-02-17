@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+<%
+	[
+		[ "App name", @app.name ],
+		[ "Description", @app.description ],
+		[ "Database", @app.database ]	
+	].each { |p|
+%>
+	<tr>
+		<td> <strong> <%= p[0] %> </strong> </td>
+		<td> <%= p[1] %> </td>
+	</tr>
+<% } %>
+
+	<tr>
+		<td> <strong> Classes </strong> </td>
+		<td>
+			<%= render :partial => "app_klasses", :locals => { :app => @app } %>
+		</td>
+	</tr>
+</table>
+
+<p style="background-color:cyan; width:500px">
+  <b>Scaffolding:</b>
+	<code>
+  <%= @app.to_scaffold %>
+	</code>
+</p>
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>
