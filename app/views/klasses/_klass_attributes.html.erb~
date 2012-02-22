@@ -5,7 +5,6 @@
 			<th> Operations </th>
 		</tr>
 
-	<% app = klass.app %>
 	<% klass.attributes.each { |attribute| %>
 		<tr> 
 			<td> <%= attribute.name %> </td>
@@ -23,8 +22,9 @@
 			<td> </td>
 			<td> </td>
 			<td> 
-			  <%= link_to 'create a new attribute', 
-					new_app_klass_attribute( app, klass) %> 
+				<% if klass.id != nil then %>
+					<%= link_to 'create a new attribute', new_app_klass_attribute_path( app, klass) %>
+				<% end>
 			</td>
 		</tr>
 

@@ -15,6 +15,6 @@
 <strong> Attributes in class <%= @klass.name %> </strong>
 <br />
 
-<%= render :partial => "klass_attributes", :locals => { :klass => @klass } %>
+<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } %>
 
 <br />

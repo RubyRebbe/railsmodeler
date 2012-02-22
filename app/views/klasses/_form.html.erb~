@@ -4,6 +4,9 @@
   <div class="inputs">
     <%= f.input :name %>
     <%= f.input :description %>
+		<%= f.simple_fields_for :attributes do |af| %>
+			<%= af.input :name, :label => 'attribute name:' %>
+		<% end %>
   </div>
 
   <div class="actions">
@@ -15,4 +18,6 @@
 <strong> Attributes in class <%= @klass.name %> </strong>
 <br />
 
-<%= render :partial => "klass_attributes", :locals => { :klass => @klass } %>
+<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } %>
+
+<br />

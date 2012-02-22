@@ -1,4 +1,4 @@
-<% if !app.klasses.empty? then %>
+
 	<table>
 		<tr>
 			<th> Classes in app <%= app.name %> </th>
@@ -20,12 +20,11 @@
 	<% } %>
 
 		<tr>
-			<td> new class</td>
+			<td> </td>
 			<td> 
-				<%= link_to 'to create a new Klass in this app', new_app_klass_path( app) %> 
+				<%= link_to 'create a new class in this app', new_app_klass_path( :app_id) %> 
 			</td>
 		</tr>
 
 	</table>
-<% end %>
 
