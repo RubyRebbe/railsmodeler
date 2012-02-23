@@ -9,6 +9,7 @@
 		<tr> 
 			<td>
 				<%= k.name %> 
+				<%= link_to k.name, app_klass_path( app, k ) %> 
 			</td>
 			<td>
 				<%= link_to 'Show', app_klass_path( app, k ) %> ,
@@ -22,7 +23,7 @@
 		<tr>
 			<td> </td>
 			<td> 
-				<%= link_to 'create a new class in this app', new_app_klass_path( :app_id) %> 
+				<%= link_to 'create a new class in this app', new_app_klass_path( app) %> 
 			</td>
 		</tr>
 

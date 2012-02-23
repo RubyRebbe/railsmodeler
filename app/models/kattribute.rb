@@ -1,4 +1,4 @@
-class Attribute < ActiveRecord::Base
+class Kattribute < ActiveRecord::Base # to avoid conflict with ActiveRecord.attributes method
   belongs_to :klass
 
 	def self.types # rails db types

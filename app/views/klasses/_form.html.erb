@@ -1,20 +1,33 @@
+<table>
 <%= simple_form_for( [ @app, @klass ]) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
+		<tr>
+			<td> <strong> name </strong> </td>
+    	<td> <%= f.input :name, :label => ':' %> </td>
+		</tr>
+
+		<tr>
+			<td> <strong> description </strong> </td>
+    	<td> <%= f.input :description, :label => ':' %> </td>
+		</tr>
+
+		<tr>
+			<td> <strong> attributes </strong> </td>
+    	<td> 
+				<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass }  %> 
+			</td>
+		</tr>
   </div>
 
   <div class="actions">
-    <%= f.button :submit %>
+		<tr>
+			<td> </td>
+    	<td> <%= f.button :submit %> </td>
+		</tr>
   </div>
 <% end %>
-
-<br />
-<strong> Attributes in class <%= @klass.name %> </strong>
-<br />
-
-<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } %>
+</table>
 
 <br />
