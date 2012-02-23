@@ -19,10 +19,21 @@
 }
 
 .simple_form input[type="text"], .simple_form textarea  {
-	width:  300px;
+	width:  200px; /* was 300px */
+}
+
+.simple_form input[class="string optional"] {
+	width:  100px;
 }
 
 .input textarea {
 	height:  5em;
+}
+
+table, td, th {
+	border: 2px solid black;
+	border-collapse: collapse;
+	font-family: Arial, Verdana, sans-serif;
+	background-color: #FFFF99; /* very light yellow */
 }
 
