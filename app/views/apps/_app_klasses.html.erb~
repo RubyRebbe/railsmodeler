@@ -8,7 +8,6 @@
 	<% app.klasses.each { |k| %>
 		<tr> 
 			<td>
-				<%= k.name %> 
 				<%= link_to k.name, app_klass_path( app, k ) %> 
 			</td>
 			<td>
