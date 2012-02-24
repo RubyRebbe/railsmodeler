@@ -19,7 +19,7 @@
 }
 
 .simple_form input[type="text"], .simple_form textarea  {
-	width:  300px;
+	width:  200px; /* was 300px */
 }
 
 .input textarea {

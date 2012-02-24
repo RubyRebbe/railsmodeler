@@ -5,15 +5,14 @@
 			<th> Operations </th>
 		</tr>
 
-	<% app = klass.app %>
-	<% klass.attributes.each { |attribute| %>
+	<% klass.kattributes.each { |attribute| %>
 		<tr> 
 			<td> <%= attribute.name %> </td>
 			<td> <%= attribute.typus %> </td>
 			<td>
-				<%= link_to 'Show', app_klass_attribute_path( app, klass, attribute ) %> ,
-				<%= link_to 'Edit', edit_app_klass_attribute_path(app, klass, attribute) %> ,
-				<%= link_to 'Destroy', app_klass_attribute_path( app, klass, attribute), 
+				<%= link_to 'Show', app_klass_kattribute_path( app, klass, attribute ) %> ,
+				<%= link_to 'Edit', edit_app_klass_kattribute_path(app, klass, attribute) %> ,
+				<%= link_to 'Destroy', app_klass_kattribute_path( app, klass, attribute), 
 					confirm: 'Are you sure?', method: :delete %>
 			</td>
 		</tr>
@@ -23,8 +22,9 @@
 			<td> </td>
 			<td> </td>
 			<td> 
-			  <%= link_to 'create a new attribute', 
-					new_app_klass_attribute_path( app, klass) %> 
+				<% if klass.id != nil then %>
+					<%= link_to 'create a new attribute', new_app_klass_kattribute_path( app, klass) %>
+				<% end %>
 			</td>
 		</tr>
 

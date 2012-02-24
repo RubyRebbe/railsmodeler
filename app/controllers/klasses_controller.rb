@@ -13,6 +13,7 @@ class KlassesController < ApplicationController
   # GET /klasses/1
   # GET /klasses/1.json
   def show
+		@app = App.find( params[:app_id])
     @klass = Klass.find(params[:id])
 
     respond_to do |format|

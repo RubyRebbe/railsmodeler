@@ -1,4 +1,4 @@
-<% if !app.klasses.empty? then %>
+
 	<table>
 		<tr>
 			<th> Classes in app <%= app.name %> </th>
@@ -8,7 +8,7 @@
 	<% app.klasses.each { |k| %>
 		<tr> 
 			<td>
-				<%= k.name %> 
+				<%= link_to k.name, app_klass_path( app, k ) %> 
 			</td>
 			<td>
 				<%= link_to 'Show', app_klass_path( app, k ) %> ,
@@ -20,12 +20,11 @@
 	<% } %>
 
 		<tr>
-			<td> new class</td>
+			<td> </td>
 			<td> 
-				<%= link_to 'to create a new Klass in this app', new_app_klass_path( app) %> 
+				<%= link_to 'create a new class in this app', new_app_klass_path( app) %> 
 			</td>
 		</tr>
 
 	</table>
-<% end %>
 

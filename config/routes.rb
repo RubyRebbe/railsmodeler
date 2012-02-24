@@ -3,7 +3,7 @@ Railsmodeler::Application.routes.draw do
 
   resources :apps do
 		resources :klasses do
-			resources :attributes
+			resources :kattributes
 		end
 	end
 

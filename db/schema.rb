@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212051609) do
+ActiveRecord::Schema.define(:version => 20120223165503) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120212051609) do
     t.string   "database"
   end
 
-  create_table "attributes", :force => true do |t|
+  create_table "kattributes", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "klass_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120212051609) do
     t.string   "typus"
   end
 
-  add_index "attributes", ["klass_id"], :name => "index_attributes_on_klass_id"
+  add_index "kattributes", ["klass_id"], :name => "index_attributes_on_klass_id"
 
   create_table "klasses", :force => true do |t|
     t.string   "name"

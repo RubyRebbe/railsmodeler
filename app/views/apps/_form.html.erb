@@ -1,14 +1,32 @@
+<table>
 <%= simple_form_for @app do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-	<%= f.input :database, :collection => App.databases %>
-	<br />
-  <%= f.button :submit %>
+  <tr> 
+		<td> <strong> name </strong> </td>
+		<td> <%= f.input :name, :label => ':' %> </td>
+	</tr>
+
+	<tr>
+		<td> <strong> description </strong> </td>
+  	<td> <%= f.input :description, :label => ':' %> </td>
+	</tr>
+
+	<tr>
+		<td> <strong> database </strong> </td>
+		<td> <%= f.input :database, :collection => App.databases, :label => ':' %> </td>
+	</tr>
+
+	<tr>
+		<td> <strong> classes </strong> </td>
+		<td> <%= render :partial => "app_klasses", :locals => { :app => @app } %> </td>
+	</tr>
+
+	<tr>
+		<td>  </td>
+		<td> <%= f.button :submit %> </td>
+	</tr>
+  
 <% end %>
-
-<br />
-
-<%= render :partial => "app_klasses", :locals => { :app => @app } %>
+</table>
 
 <br />
 <br />
