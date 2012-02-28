@@ -1,5 +1,6 @@
 class App < ActiveRecord::Base
-	has_many :klasses
+	has_many :klasses, :dependent => :destroy
+	has_many :kassociations, :dependent => :destroy
 
 	def self.databases
 		[ "sqlite3", "postgresql", "mysql", "oracle", "frontbase", "ibm_db" ]

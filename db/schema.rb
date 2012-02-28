@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223165503) do
+ActiveRecord::Schema.define(:version => 20120224050217) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20120223165503) do
     t.datetime "updated_at"
     t.string   "database"
   end
+
+  create_table "kassociations", :force => true do |t|
+    t.string   "typus"
+    t.text     "description"
+    t.integer  "source_id"
+    t.integer  "target_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "app_id"
+  end
+
+  add_index "kassociations", ["source_id"], :name => "index_kassociations_on_source_id"
+  add_index "kassociations", ["target_id"], :name => "index_kassociations_on_target_id"
 
   create_table "kattributes", :force => true do |t|
     t.string   "name"

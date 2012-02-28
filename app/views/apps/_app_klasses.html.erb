@@ -1,7 +1,7 @@
 
 	<table>
 		<tr>
-			<th> Classes in app <%= app.name %> </th>
+			<th> Class name </th>
 			<th> Operations </th>
 		</tr>
 
@@ -19,12 +19,14 @@
 		</tr>
 	<% } %>
 
+		<% if app.id != nil then %>
 		<tr>
 			<td> </td>
 			<td> 
 				<%= link_to 'create a new class in this app', new_app_klass_path( app) %> 
 			</td>
 		</tr>
+		<% end %>
 
 	</table>
 

@@ -5,7 +5,7 @@
   <div class="inputs">
 		<tr>
 			<td> <strong> name </strong> </td>
-    	<td> <%= f.input :name, :label => ':' %> </td>
+    	<td> <%= f.input :name, :label => '&nbsp' %> </td>
 		</tr>
 
 		<tr>
@@ -28,7 +28,6 @@
 		</tr>
   </div>
 <% end %>
-
 </table>
 
 <br />

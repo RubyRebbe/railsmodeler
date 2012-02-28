@@ -1,9 +1,11 @@
 Railsmodeler::Application.routes.draw do
+  resources :kassociations
+
   get "rails_modeler/index"
 
   resources :apps do
 		resources :klasses do
-			resources :attributes
+			resources :kattributes
 		end
 	end
 

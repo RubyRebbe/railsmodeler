@@ -13,9 +13,7 @@ class Attribute < ActiveRecord::Base
 		"time",
 		"date",
 		"binary",
-		"boolean",
-		"references",
-		"through"		# not a rails db type, but an rmodel type
+		"boolean"
 	]
 	end
 end

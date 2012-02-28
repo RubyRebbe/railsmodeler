@@ -1,10 +1,14 @@
 Railsmodeler::Application.routes.draw do
+  resources :kassociations
+
   get "rails_modeler/index"
 
   resources :apps do
 		resources :klasses do
 			resources :kattributes
 		end
+
+		resources :kassociations
 	end
 
   # The priority is based upon order of creation:

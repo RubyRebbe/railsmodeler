@@ -20,12 +20,19 @@
 			<%= render :partial => "app_klasses", :locals => { :app => @app } %>
 		</td>
 	</tr>
+
+	<tr>
+		<td> <strong> Associations </strong> </td>
+		<td>
+			<%= render :partial => "app_kassociations", :locals => { :app => @app } %>
+		</td>
+	</tr>
 </table>
 
 <p style="background-color:cyan; width:500px">
   <b>Scaffolding:</b>
 	<code>
-  rails new <%= @app.name %> --database <%= @app.database %>
+  <%= @app.to_scaffold %>
 	</code>
 </p>
 

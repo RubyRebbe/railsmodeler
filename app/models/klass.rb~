@@ -1,17 +1,50 @@
 class Klass < ActiveRecord::Base
 	belongs_to :app
-	has_many :kattributes
+	has_many :kattributes, :dependent => :destroy
+	
+	# returns list of Kassociations where this klass is the source
+	def sources
+		Kassociation.where( :source_id => self.id )
+	end
+
+	# returns list of Kassociations where this klass is the target
+	def targets
+		Kassociation.where( :target_id => self.id )
+	end
+
+	def direction( kassoc)
+		dir = "" # a little dummy proofing
+		if kassoc.source.id == self.id then
+			dir = "source"
+		elsif kassoc.target.id == self.id then
+			dir = "target"
+		end
+		dir
+	end
 
 	def to_scaffold
-		puts "*"*80
-		puts "BEGIN Klass.to_scaffold: #{self}"
-
 		prefix = "rails generate scaffold " + self.name
-		puts "prefix:  #{prefix}"
+		kats = self.kattributes.map { |a| a.to_scaffold }
+		so = self.sources.map { |ka| ka.to_scaffold_source }
+		ta = self.targets.map { |ka| ka.to_scaffold_target }
 
-		self.kattributes.reduce( prefix ) { |memo,a|
-			memo + " " + a.name + ":" + a.typus
-		}
+		( kats + (so|ta) ).reduce( prefix) { |m,s| m + " " + s }
+	end
+
+	# generates the code for the class as an array of strings
+	# for display on webpage, deals with the fact html ignores whitespace, notably newline
+	def to_code
+	[
+		"class #{self.name} < ActiveRecord::Base",
+		self.sources.map { |kassoc| kassoc.to_code_source },
+		self.targets.map { |kassoc| kassoc.to_code_target },
+		"end"
+	]
+	end
+
+	# for writing the code to a file or stdout
+	def to_s
+		"tbd"
 	end
 end
 

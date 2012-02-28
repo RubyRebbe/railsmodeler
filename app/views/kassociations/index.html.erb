@@ -1,0 +1,29 @@
+<h1>Listing kassociations</h1>
+
+<table>
+  <tr>
+    <th>Typus</th>
+    <th>Description</th>
+    <th>Source</th>
+    <th>Target</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @kassociations.each do |kassociation| %>
+  <tr>
+    <td><%= kassociation.typus %></td>
+    <td><%= kassociation.description %></td>
+    <td><%= kassociation.source %></td>
+    <td><%= kassociation.target %></td>
+    <td><%= link_to 'Show', kassociation %></td>
+    <td><%= link_to 'Edit', edit_kassociation_path(kassociation) %></td>
+    <td><%= link_to 'Destroy', kassociation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Kassociation', new_kassociation_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @kassociation.source.name %>
+</p>
+
+<p>
+  <b>Typus:</b>
+  <%= @kassociation.typus %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%= @kassociation.target.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @kassociation.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_kassociation_path(@app, @kassociation) %> |
+<%= link_to 'Back', app_path( @app) %>

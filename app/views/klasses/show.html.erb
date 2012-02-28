@@ -1,25 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <table>
-<%
-	[
-		[ "Class name", @klass.name ],
-		[ "Description", @klass.description ],
-		[ "App", @klass.app.name ]	
-	].each { |p|
-%>
-	<tr>
-		<td> <strong> <%= p[0] %> </strong> </td>
-		<td> <%= p[1] %> </td>
-	</tr>
-<% } %>
+<%= render :partial => "klass_entry", :locals => { :name => "Class name", :value => @klass.name } %>
+<%= render :partial => "klass_entry", :locals => { :name => "Description", :value => @klass.description } %>
+<%= render :partial => "klass_entry", 
+	:locals => { :name => "App", :value => link_to( @klass.app.name, app_path( @klass.app)) } %>
 
-	<tr>
-		<td> <strong> Attributes </strong> </td>
-		<td>
-			<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } %>
-		</td>
-	</tr>
+<%= render :partial => "klass_entry", :locals => { :name => "Attributes",
+	:value => (render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } ) } %>
+
+<%= render :partial => "klass_entry", :locals => { :name => "Associations",
+	:value => (render :partial => "klass_kassociations", :locals => { :app => @app, :klass => @klass } ) } %>
 </table>
 
 <br />
@@ -28,6 +19,18 @@
 <code> <%= @klass.to_scaffold %> </code>
 </p>
 
-<br />
+<strong> Rails Model source code for <%= @klass.name %>: </strong>
+<p style= "border-style:solid; width:600px; background-color:pink">
+<code>
+<% code = @klass.to_code %>
+<%= code[0] %> <br />
+<% code[1].each { |s| %>
+	&nbsp; <%= s %> <br />
+<% } %>
+<%= code[2] %>
+</code>
+</p>
+
+<br /><br />
 <%= link_to 'Edit', edit_app_klass_path(@klass.app, @klass) %> |
 <%= link_to 'Back', app_path( @klass.app) %>

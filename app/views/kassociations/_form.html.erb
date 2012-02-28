@@ -1,0 +1,14 @@
+<%= simple_form_for( [ @app, @kassociation ] ) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :source %>
+ 		<%= f.input :typus, :collection => Kassociation.types %>
+    <%= f.association :target %>
+ 		<%= f.input :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

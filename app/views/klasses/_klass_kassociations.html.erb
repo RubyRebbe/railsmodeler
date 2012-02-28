@@ -1,0 +1,52 @@
+these are the associations whose source or target are this class:
+<%= klass.name %>
+<br />
+
+<table>
+	<tr>
+		<th> Direction </th>
+		<th> Type </th>
+		<th> Signature </th>
+		<th> Operations </th>
+	</tr>
+
+	<% klass.sources.each { |assoc| %>
+		<tr> 
+			<td> <%= klass.direction( assoc) %> </td>
+			<td> <%= assoc.typus %> </td>
+			<td> <%= assoc.name %> </td>
+			<td>
+				<%= link_to 'Show', app_kassociation_path( app, assoc ) %> ,
+				<%= link_to 'Edit', edit_app_kassociation_path(app, assoc) %> ,
+				<%= link_to 'Destroy', app_kassociation_path( app, assoc), 
+					confirm: 'Are you sure?', method: :delete %>
+			</td>
+		</tr>
+	<% } %>
+
+	<% klass.targets.each { |assoc| %>
+		<tr> 
+			<td> <%= klass.direction( assoc) %> </td>
+			<td> <%= assoc.typus %> </td>
+			<td> <%= assoc.name %> </td>
+			<td>
+				<%= link_to 'Show', app_kassociation_path( app, assoc ) %> ,
+				<%= link_to 'Edit', edit_app_kassociation_path(app, assoc) %> ,
+				<%= link_to 'Destroy', app_kassociation_path( app, assoc), 
+					confirm: 'Are you sure?', method: :delete %>
+			</td>
+		</tr>
+	<% } %>
+
+		<tr>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> 
+				<% if klass.id != nil then %>
+					<%= link_to 'create a new association in this app', new_app_kassociation_path( app) %> 
+				<% end %>
+			</td>
+		</tr>
+
+	</table>

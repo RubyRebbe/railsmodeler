@@ -12,42 +12,39 @@
       </library>
     </libraries>
   </data-source>
-  <data-source source="LOCAL" name="Rails railsmodeler: cucumber" product="" version="" jdbc-version="" driver-version="" uuid="650e17aa-dc80-44bf-bf5a-c63f5aea75d0">
-    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_test</jdbc-url>
-    <user-name>postgres</user-name>
+  <data-source source="LOCAL" name="Rails railsmodeler: development" product="" version="" jdbc-version="" driver-version="" uuid="ed942b32-5f05-4a13-a481-34f31110be30">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:/home/tsvi/TsviStuff/Ruby Projects/Rails Projects/railsmodeler/db/development.sqlite3</jdbc-url>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/zentus-sqlite-license.txt</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+        <url>jar://$USER_HOME$/.RubyMine32/config/jdbc-drivers/sqlitejdbc-v056.jar!/</url>
       </library>
     </libraries>
   </data-source>
-  <data-source source="LOCAL" name="Rails railsmodeler: test" product="" version="" jdbc-version="" driver-version="" uuid="d6871954-7c7a-4c03-990e-a8dbc05b81f9">
-    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_test</jdbc-url>
-    <user-name>postgres</user-name>
+  <data-source source="LOCAL" name="Rails railsmodeler: cucumber" product="" version="" jdbc-version="" driver-version="" uuid="b94c5c25-f863-476e-aa95-e8c9ba5b5e2f">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:/home/tsvi/TsviStuff/Ruby Projects/Rails Projects/railsmodeler/db/test.sqlite3</jdbc-url>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/zentus-sqlite-license.txt</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+        <url>jar://$USER_HOME$/.RubyMine32/config/jdbc-drivers/sqlitejdbc-v056.jar!/</url>
       </library>
     </libraries>
   </data-source>
-  <data-source source="LOCAL" name="Rails railsmodeler: development" product="" version="" jdbc-version="" driver-version="" uuid="6ca36458-a553-4544-95d1-62acadda08a4">
-    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/railsmodeler_development</jdbc-url>
-    <user-name>postgres</user-name>
+  <data-source source="LOCAL" name="Rails railsmodeler: test" product="" version="" jdbc-version="" driver-version="" uuid="da5f3383-2499-40bb-9318-beeed96f2b8a">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:/home/tsvi/TsviStuff/Ruby Projects/Rails Projects/railsmodeler/db/test.sqlite3</jdbc-url>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/zentus-sqlite-license.txt</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.1-901.jdbc4.jar</url>
+        <url>jar://$USER_HOME$/.RubyMine32/config/jdbc-drivers/sqlitejdbc-v056.jar!/</url>
       </library>
     </libraries>
   </data-source>

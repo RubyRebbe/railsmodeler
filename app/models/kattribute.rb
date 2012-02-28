@@ -13,9 +13,11 @@ class Kattribute < ActiveRecord::Base # to avoid conflict with ActiveRecord.attr
 		"time",
 		"date",
 		"binary",
-		"boolean",
-		"references",
-		"through"		# not a rails db type, but an rmodel type
+		"boolean"
 	]
+	end
+
+	def to_scaffold
+		self.name + ":" + self.typus
 	end
 end

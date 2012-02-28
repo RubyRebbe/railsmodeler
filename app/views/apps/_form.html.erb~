@@ -1,22 +1,22 @@
 <table>
 <%= simple_form_for @app do |f| %>
   <tr> 
-		<td> name </td>
+		<td> <strong> name </strong> </td>
 		<td> <%= f.input :name, :label => ':' %> </td>
 	</tr>
 
 	<tr>
-		<td> description </td>
+		<td> <strong> description </strong> </td>
   	<td> <%= f.input :description, :label => ':' %> </td>
 	</tr>
 
 	<tr>
-		<td> database </td>
+		<td> <strong> database </strong> </td>
 		<td> <%= f.input :database, :collection => App.databases, :label => ':' %> </td>
 	</tr>
 
 	<tr>
-		<td> classes </td>
+		<td> <strong> classes </strong> </td>
 		<td> <%= render :partial => "app_klasses", :locals => { :app => @app } %> </td>
 	</tr>
 

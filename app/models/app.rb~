@@ -1,11 +1,11 @@
 class App < ActiveRecord::Base
-	has_many :klasses
+	has_many :klasses, :dependent => :destroy
 
 	def self.databases
 		[ "sqlite3", "postgresql", "mysql", "oracle", "frontbase", "ibm_db" ]
 	end
 
 	def to_scaffold
-		"rails new " + self.name + " --database " + @app.database
+		"rails new " + self.name + " --database " + self.database
 	end
 end
