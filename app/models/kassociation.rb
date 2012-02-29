@@ -19,7 +19,7 @@ class Kassociation < ActiveRecord::Base
 
 	# pre-condition:  typus == "join"
 	def join_class
-		self.app.klasses.find_by_name( self.join_class_name)
+		Klass.where( :kassociation_id => self.id).first
 	end
 
 	def self.types # association types
@@ -114,13 +114,13 @@ class Kassociation < ActiveRecord::Base
 	# creates the join class within the app in railsmodeler
 	# pre-condition:  self.typus == "join"
 	def create_join_class
-		join_class = self.app.klasses.create( :name => join_class_name, :kassociation => self )
+		j_class = self.app.klasses.create( :name => join_class_name, :kassociation => self )
 
 		[ self.source.name.downcase, self.target.name.downcase ].each { |n|
 			join_class.kattributes.create( :name => n, :typus => "references" )
 		}
 
-		join_class
+		j_class
 	end
 
 	def join_class_name
