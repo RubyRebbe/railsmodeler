@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.association :source %>
+    <%= f.association :source, :collection => @app.klasses %>
  		<%= f.input :typus, :collection => Kassociation.types %>
-    <%= f.association :target %>
+    <%= f.association :target, :collection => @app.klasses %>
  		<%= f.input :description %>
   </div>
 
@@ -12,3 +12,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
