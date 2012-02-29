@@ -80,4 +80,9 @@ class AppsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+	# summarizes the code generation for this app
+	def summarize
+		@app = App.find(params[:id])
+	end
 end

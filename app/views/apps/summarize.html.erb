@@ -1,0 +1,43 @@
+<h1> 
+App: <%= link_to @app.name, app_path( @app) %> 
+- summary of code generation 
+</h1>
+
+
+<h2> App Scaffold </h2>
+
+<p style="background-color:cyan; width:500px">
+	<code>
+  <%= @app.to_scaffold %>
+	</code>
+</p>
+
+<h2> Class Scaffolds </h2>
+
+<p style="background-color:cyan">
+<% @app.klasses.each { |klass| %>
+	<code> <%= klass.to_scaffold %> </code>
+	<br />
+<% } %>
+</p>
+
+<h2> Model class code </h2>
+
+<% @app.klasses.each { |klass| %>
+	<strong> Rails Model source code for <%= klass.name %>: </strong>
+	<p style= "border-style:solid; width:600px; background-color:pink">
+	<code>
+	<% code = klass.to_code %>
+	<%= code[0] %> <br />
+	<% code[1].each { |s| %>
+		&nbsp; <%= s %> <br />
+	<% } %>
+	<%= code[2] %>
+	</code>
+</p>
+<% } %>
+
+<br />
+
+<%= link_to 'Back to app', app_path( @app) %>
+
