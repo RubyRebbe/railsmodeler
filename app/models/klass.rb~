@@ -1,5 +1,6 @@
 class Klass < ActiveRecord::Base
 	belongs_to :app
+	belongs_to :kassociation # not nil if this a join class
 	has_many :kattributes, :dependent => :destroy
 	
 	# returns list of Kassociations where this klass is the source
@@ -34,17 +35,14 @@ class Klass < ActiveRecord::Base
 	# generates the code for the class as an array of strings
 	# for display on webpage, deals with the fact html ignores whitespace, notably newline
 	def to_code
-	[
-		"class #{self.name} < ActiveRecord::Base",
-		self.sources.map { |kassoc| kassoc.to_code_source },
-		self.targets.map { |kassoc| kassoc.to_code_target },
-		"end"
-	]
-	end
-
-	# for writing the code to a file or stdout
-	def to_s
-		"tbd"
+		self.kassociation == nil ?  # source code for non-join class
+			[
+				"class #{self.name} < ActiveRecord::Base",
+				( self.sources.map { |kassoc| kassoc.to_code_source } | 
+					self.targets.map { |kassoc| kassoc.to_code_target } ),
+				"end"
+			]
+		: self.kassociation.to_code_join	# source code for join class
 	end
 end
 

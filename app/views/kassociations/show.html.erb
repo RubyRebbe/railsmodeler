@@ -20,6 +20,11 @@
   <%= @kassociation.description %>
 </p>
 
+<p>
+  <b>App:</b>
+  <%= @kassociation.app.name %>
+</p>
+
 
 <%= link_to 'Edit', edit_app_kassociation_path(@app, @kassociation) %> |
 <%= link_to 'Back', app_path( @app) %>

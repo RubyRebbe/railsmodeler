@@ -3,11 +3,31 @@ class Kassociation < ActiveRecord::Base
 	belongs_to :target, :class_name => "Klass", :foreign_key => "target_id"
 	belongs_to :app
 
+	after_create do
+		if self.typus == "join" then
+			self.create_join_class
+		end
+	end
+
+	before_destroy do
+		if self.typus == "join" then
+			if self.join_class != nil then
+				self.join_class.destroy
+			end
+		end
+	end
+
+	# pre-condition:  typus == "join"
+	def join_class
+		self.app.klasses.find_by_name( self.join_class_name)
+	end
+
 	def self.types # association types
 	[
 		"belongs_to",
 		"has_many",
-		"has_many through"
+		"join",							# adding in join frees me to be creative, not bound by rails convention
+		"has_many through"	# for has_many through
 	]
 	end
 
@@ -46,6 +66,11 @@ class Kassociation < ActiveRecord::Base
 				"belongs_to :" + self.target.name.downcase					# result:	"belongs_to :person"
 			when "has_many"																					# prototype:	Video has_many Song
 				"has_many :" + self.target.name.downcase.pluralize	# result:	"has_many :songs"
+			when "join"
+				[ 
+					"has_many :#{join_table_name}",
+					"has_many :#{target.name.downcase.pluralize}, :through => :#{join_table_name}"
+				]
 			else
 				""
 		end
@@ -57,9 +82,49 @@ class Kassociation < ActiveRecord::Base
 				""																				# result:	""
 			when "has_many"															# prototype:	Video has_many Song
 				"belongs_to :" + self.source.name.downcase	# result:	"belongs_to :video"
+			when "join"
+				[ 
+					"has_many :#{join_table_name}",
+					"has_many #{source.name.downcase.pluralize}, :through => :#{join_table_name}"
+				]
 			else
 				""
 		end		
+	end
+
+	def join_table_name
+		source.name.downcase + "_" + target.name.downcase.pluralize
+	end
+
+	# generates the code of the join class
+	# pre-condition:  self.typus == "join"
+	# may not be needed: it's the join class's responsibility as a Klass
+	# subject to rspec test
+	def to_code_join
+		[
+			"class #{join_class_name} < ActiveRecord::Base",
+			[
+				"belongs_to :" + self.source.name.downcase,
+				"belongs_to :" + self.target.name.downcase
+			],
+			"end"
+		]
+	end
+
+	# creates the join class within the app in railsmodeler
+	# pre-condition:  self.typus == "join"
+	def create_join_class
+		join_class = self.app.klasses.create( :name => join_class_name, :kassociation => self )
+
+		[ self.source.name.downcase, self.target.name.downcase ].each { |n|
+			join_class.kattributes.create( :name => n, :typus => "references" )
+		}
+
+		join_class
+	end
+
+	def join_class_name
+		self.source.name + self.target.name
 	end
 end # class Kassociation
 

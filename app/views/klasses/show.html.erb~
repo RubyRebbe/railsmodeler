@@ -27,10 +27,7 @@
 <% code[1].each { |s| %>
 	&nbsp; <%= s %> <br />
 <% } %>
-<% code[2].each { |s| %>
-	&nbsp; <%= s %> <br />
-<% } %>
-<%= code[3] %>
+<%= code[2] %>
 </code>
 </p>
 
