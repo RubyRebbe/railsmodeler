@@ -85,7 +85,7 @@ class Kassociation < ActiveRecord::Base
 			when "join"
 				[ 
 					"has_many :#{join_table_name}",
-					"has_many #{source.name.downcase.pluralize}, :through => :#{join_table_name}"
+					"has_many :#{source.name.downcase.pluralize}, :through => :#{join_table_name}"
 				]
 			else
 				""

@@ -39,7 +39,7 @@ class Klass < ActiveRecord::Base
 			[
 				"class #{self.name} < ActiveRecord::Base",
 				( self.sources.map { |kassoc| kassoc.to_code_source } | 
-					self.targets.map { |kassoc| kassoc.to_code_target } ),
+					self.targets.map { |kassoc| kassoc.to_code_target } ).flatten,
 				"end"
 			]
 		: self.kassociation.to_code_join	# source code for join class

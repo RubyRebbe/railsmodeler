@@ -39,5 +39,28 @@ App: <%= link_to @app.name, app_path( @app) %>
 
 <br />
 
+<h2> Ruby script for generating the app:  <%= @app.name %> </h2>
+
+<ul>
+<li> You can copy this script from the browser and paste it into a file </li>
+<li> make the file executable </li>
+<li> 
+	select a directory/folder where you want the rails app to live
+	and make sure that the script file is in that location
+</li>
+<li> execute the ruby script file </li>
+<li> and ... voila! your rails application is ready for further development
+</ul>
+
+<kbd>
+<% @app.to_code.each { |s| %>
+	<% s.split( "\n").each { |piece| %>
+		<%= piece %> <br />
+	<% } %> <br />
+<% } %>
+</kbd>
+
+<br />
+
 <%= link_to 'Back to app', app_path( @app) %>
 

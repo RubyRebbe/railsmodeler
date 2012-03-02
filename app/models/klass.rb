@@ -44,5 +44,10 @@ class Klass < ActiveRecord::Base
 			]
 		: self.kassociation.to_code_join	# source code for join class
 	end
+
+	def to_s
+		code = self.to_code
+		"#{code[0]} #{code[1].reduce( "") { |m,s| m + "\n  " + s }} \n#{code[2]}"
+	end
 end
 
