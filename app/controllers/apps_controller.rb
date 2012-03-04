@@ -2,7 +2,7 @@ class AppsController < ApplicationController
   # GET /apps
   # GET /apps.json
 
-	before_filter :get_app, :except => :index
+	before_filter :get_app, :except => [:index, :create]
 
   def index
     @apps = App.all
@@ -38,6 +38,7 @@ class AppsController < ApplicationController
   # POST /apps
   # POST /apps.json
   def create
+    @app = App.new(params[:app])
     respond_to do |format|
       if @app.save
         format.html { redirect_to @app, notice: 'App was successfully created.' }

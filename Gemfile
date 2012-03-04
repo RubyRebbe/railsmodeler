@@ -32,7 +32,7 @@ gem 'simple_form'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
-	gem 'sqlite3'
+  gem 'sqlite3'
   gem "rspec-rails" 
 end
 
