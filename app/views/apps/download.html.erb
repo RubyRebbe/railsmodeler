@@ -1,0 +1,5 @@
+<% @app.to_code.each { |s| %>
+	<% s.split( "\n").each { |piece| %>
+		<%= piece %> <br />
+	<% } %> <br />
+<% } %>

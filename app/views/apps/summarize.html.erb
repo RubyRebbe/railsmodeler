@@ -4,31 +4,28 @@ App: <%= link_to @app.name, app_path( @app) %>
 </h1>
 
 
-<h2> App Scaffold </h2>
+<h2> Generators </h2>
 
-<p style="background-color:cyan; width:500px">
+<div style="background-color:#0000bb; color:#fff; margin-bottom:10px; font-weight:bold; width:500px">
 	<code>
   <%= @app.to_scaffold %>
 	</code>
-</p>
+</div>
 
-<h2> Class Scaffolds </h2>
-
-<p style="background-color:cyan">
+<div style="background-color:cyan; width:500px">
 <% @app.klasses.each { |klass| %>
 	<code> <%= klass.to_scaffold %> </code>
 	<br />
 <% } %>
-</p>
+</div>
 
-<h2> Model class code </h2>
+<h2> Models </h2>
 
 <% @app.klasses.each { |klass| %>
-	<strong> Rails Model source code for <%= klass.name %>: </strong>
 	<p style= "border-style:solid; width:600px; background-color:pink">
 	<code>
 	<% code = klass.to_code %>
-	<%= code[0] %> <br />
+	class <strong><%= klass.name %></strong> &lt; ActiveRecord::Base <br />
 	<% code[1].each { |s| %>
 		&nbsp; <%= s %> <br />
 	<% } %>
@@ -42,7 +39,7 @@ App: <%= link_to @app.name, app_path( @app) %>
 <h2> Ruby script for generating the app:  <%= @app.name %> </h2>
 
 <ul>
-<li> You can copy this script from the browser and paste it into a file </li>
+<li> You can copy this script from the browser and paste it into a file on your computer </li>
 <li> make the file executable </li>
 <li> 
 	select a directory/folder where you want the rails app to live
@@ -52,13 +49,7 @@ App: <%= link_to @app.name, app_path( @app) %>
 <li> and ... voila! your rails application is ready for further development
 </ul>
 
-<kbd>
-<% @app.to_code.each { |s| %>
-	<% s.split( "\n").each { |piece| %>
-		<%= piece %> <br />
-	<% } %> <br />
-<% } %>
-</kbd>
+<%= link_to( "download script", download_app_path( @app, :format => "rb")) %>
 
 <br />
 

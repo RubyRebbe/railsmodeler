@@ -17,9 +17,10 @@ class App < ActiveRecord::Base
 			"system( \"#{self.to_scaffold}\")", 
 			"Dir.chdir \"#{self.name}\"" 
 		]
+
 		self.klasses.reduce( prefix) { |m,klass| 
 			m << "system( \"#{klass.to_scaffold}\")" << klass_to_file(klass)
-		}
+		} << "rake db:create" << "rake db:migrate"
 	end
 
 	def klass_to_file( klass)

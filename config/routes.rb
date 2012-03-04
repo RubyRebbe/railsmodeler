@@ -12,10 +12,9 @@ Railsmodeler::Application.routes.draw do
 
 		member do
 			get 'summarize'
+			get 'download'
 		end
 	end
-
-	match 'apps/:id/summarize' => 'apps#summarize'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
