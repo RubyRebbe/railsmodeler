@@ -1,32 +1,26 @@
-<h1>The Rails Apps List</h1>
-<br />
+<h1 class="span12">Your Rails Apps</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Database</th>
-    <th>Operations</th>
-  </tr>
+<%- if @apps.size > 0 %>
+	<div class="row">
+		<table class="span8 clean-borders">
+			<tr>
+				<th class="span3">Name</th>
+				<th class="span2">Database</th>
+				<th class="span3">Operations</th>
+			</tr>
 
-<% @apps.each do |app| %>
-  <tr>
-    <td><%= app.name %></td>
-    <td><%= app.database %></td>
-    <td>
-			<%= link_to 'Show', app %> ,  
-    	<%= link_to 'Edit', edit_app_path(app) %>, 
-    	<%= link_to 'Destroy', app, confirm: 'Are you sure?', method: :delete %>
-		</td>
-  </tr>
-<% end %>
-
-	<tr>
-		<td> </td>
-		<td> </td>
-		<td> <%= link_to 'New Rails App', new_app_path %> </td>
-	</tr>
-</table>
-
-<br />
-<%= link_to 'back to rails modeler top page', :controller => "rails_modeler" %>
+			<% @apps.each do |app| %>
+				<tr>
+					<td class="nameCol"><%= app.name %></td>
+					<td><%= app.database %></td>
+					<td>
+						<%= link_to raw('<i class="icon-eye-open"></i> Show'), app %> &nbsp;
+						<%= link_to raw('<i class="icon-edit"></i> Edit'), edit_app_path(app) %> &nbsp;
+						<%= link_to raw('<i class="icon-trash"></i> Destroy'), app, confirm: 'Are you sure?', method: :delete %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+<%- end %>
 

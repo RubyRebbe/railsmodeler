@@ -6,4 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap
+// do not require_tree . at least for now

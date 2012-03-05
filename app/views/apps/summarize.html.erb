@@ -1,56 +1,43 @@
-<h1> 
-App: <%= link_to @app.name, app_path( @app) %> 
-- summary of code generation 
-</h1>
+<h1>Code generation summary: <%= link_to @app.name, app_path( @app) %></h1>
 
+<div class="row no-left">
+	<div class="span4 pull-right">
+		<h2 class="span4">Ruby generator script</h2>
+		<div class="span4"><%= link_to( raw("<i class='icon-download'></i> Download Script"), download_app_path( @app, :format => "rb"), :class => 'btn btn-primary') %></div>
 
-<h2> Generators </h2>
+		<ul class="span4">
+			<li>Download the script &mdash; default name:  download.rb </li>
+			<li>Be sure to download the script to what will be the parent folder of the new rails app</li>
+			<li>Make it executable &mdash; generally <code>chmod g+x download.rb</code></li>
+			<li>Execute the script &mdash; generally <code>ruby ../download.rb</code></li>
+		</ul>
+	</div>
 
-<div style="background-color:#0000bb; color:#fff; margin-bottom:10px; font-weight:bold; width:500px">
-	<code>
-  <%= @app.to_scaffold %>
-	</code>
-</div>
+	<h2 class="span8">Generators </h2>
+	<div class="span7 scaffold-block">
+		<code>
+			<%= @app.to_scaffold %>
+		</code>
+		<br>
+		<% @app.klasses.each { |klass| %>
+			<code> <%= klass.to_scaffold %> </code>
+			<br />
+		<% } %>
+	</div>
 
-<div style="background-color:cyan; width:500px">
-<% @app.klasses.each { |klass| %>
-	<code> <%= klass.to_scaffold %> </code>
-	<br />
+	<h2 class="span7">Models </h2>
+
+	<% @app.klasses.each { |klass| %>
+		<% code = klass.to_code %>
+		<div class="span7 codebox">
+			<code>
+class <strong><%= klass.name %></strong> &lt; ActiveRecord::Base <br />
+<% code[1].each { |s| %>
+	&nbsp;&nbsp; <%= s %> <br />
 <% } %>
-</div>
-
-<h2> Models </h2>
-
-<% @app.klasses.each { |klass| %>
-	<p style= "border-style:solid; width:600px; background-color:pink">
-	<code>
-	<% code = klass.to_code %>
-	class <strong><%= klass.name %></strong> &lt; ActiveRecord::Base <br />
-	<% code[1].each { |s| %>
-		&nbsp; <%= s %> <br />
+&nbsp;<%= code[2] %>
+			</code>
+		</div>
 	<% } %>
-	<%= code[2] %>
-	</code>
-</p>
-<% } %>
 
-<br />
-
-<h2> Ruby script for generating the app:  <%= @app.name %> </h2>
-
-<ul>
-<li> Download the script, default name:  download.rb </li>
-<li> make the file executable </li>
-<li> 
-	select a directory/folder where you want the rails app to live
-	and make sure that the script file is in that location
-</li>
-<li> execute the script </li>
-</ul>
-
-<%= link_to( "download script", download_app_path( @app, :format => "rb")) %>
-
-<br />
-
-<%= link_to 'Back to app', app_path( @app) %>
-
+</div>

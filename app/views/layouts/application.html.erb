@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Railsmodeler</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Rails Modeler</title>
+	<%= stylesheet_link_tag "bootstrap/bootstrap", "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container" id="container">
+		<div class="nav navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<%= link_to 'Rails Modeler', '/', :class => 'brand' %>
+					<ul class="nav">
+						<li><%= link_to 'Start a New Rails App', new_app_path, :class => 'real-link' %></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<%= yield %>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			Copyright &copy; 2012, Tsvi Bar-David
+		</div>
+	</footer>
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

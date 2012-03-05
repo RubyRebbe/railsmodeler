@@ -1,0 +1,2 @@
+rvm 1.9.3-head
+rvm gemset use ruby-1.9.3-head

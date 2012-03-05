@@ -1,32 +1,31 @@
-	<table>
-		<tr>
-			<th> Name </th>
-			<th> Type </th>
-			<th> Operations </th>
-		</tr>
+<h2 class="span12">Attributes</h2>
+<table class="span8 clean-borders">
+	<tr>
+		<th> Name </th>
+		<th> Type </th>
+		<th> Operations </th>
+	</tr>
 
 	<% klass.kattributes.each { |attribute| %>
-		<tr> 
+		<tr>
 			<td> <%= attribute.name %> </td>
 			<td> <%= attribute.typus %> </td>
 			<td>
-				<%= link_to 'Show', app_klass_kattribute_path( app, klass, attribute ) %> ,
-				<%= link_to 'Edit', edit_app_klass_kattribute_path(app, klass, attribute) %> ,
-				<%= link_to 'Destroy', app_klass_kattribute_path( app, klass, attribute), 
-					confirm: 'Are you sure?', method: :delete %>
+				<%= link_to raw('<i class="icon-eye-open"></i> Show'), app_klass_kattribute_path( app, klass, attribute ) %> ,
+				<%= link_to raw('<i class="icon-edit"></i> Edit'), edit_app_klass_kattribute_path(app, klass, attribute) %> ,
+				<%= link_to raw('<i class="icon-trash"></i> Destroy'), app_klass_kattribute_path( app, klass, attribute), confirm: 'Are you sure?', method: :delete %>
 			</td>
 		</tr>
 	<% } %>
 
-		<tr>
-			<td> </td>
-			<td> </td>
-			<td> 
-				<% if klass.id != nil then %>
-					<%= link_to 'create a new attribute', new_app_klass_kattribute_path( app, klass) %>
-				<% end %>
-			</td>
-		</tr>
-
-	</table>
+	<tr>
+		<td> </td>
+		<td> </td>
+		<td>
+			<% if klass.id != nil %>
+			<%= link_to raw('<i class="icon-plus"></i> Create new attribute'), new_app_klass_kattribute_path( app, klass) %>
+			<% end %>
+		</td>
+	</tr>
+</table>
 

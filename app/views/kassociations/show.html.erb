@@ -1,30 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1>KAssociation details</h1>
+<p id="notice"><%= notice %></div>
 
-<p>
-  <b>Source:</b>
-  <%= @kassociation.source.name %>
-</p>
-
-<p>
-  <b>Typus:</b>
-  <%= @kassociation.typus %>
-</p>
-
-<p>
-  <b>Target:</b>
-  <%= @kassociation.target.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @kassociation.description %>
-</p>
-
-<p>
+<div class="span6 clear">
   <b>App:</b>
   <%= @kassociation.app.name %>
-</p>
+</div>
 
+<div class="span6 clear">
+  <b>Source:</b>
+  <%= @kassociation.source.name %>
+</div>
 
-<%= link_to 'Edit', edit_app_kassociation_path(@app, @kassociation) %> |
-<%= link_to 'Back', app_path( @app) %>
+<div class="span6 clear">
+  <b>Typus:</b>
+  <%= @kassociation.typus %>
+</div>
+
+<div class="span6 clear">
+  <b>Target:</b>
+  <%= @kassociation.target.name %>
+</div>
+
+<div class="span6 clear">
+  <b>Description:</b>
+  <%= @kassociation.description %>
+</div>

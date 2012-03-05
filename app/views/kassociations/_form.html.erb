@@ -1,15 +1,15 @@
-<%= simple_form_for( [ @app, @kassociation ] ) do |f| %>
+<%= simple_form_for( [ @app, @kassociation ], :html => {:class => 'form-vertical' } ) do |f| %>
   <%= f.error_notification %>
 
-  <div class="inputs">
+  <div class="form-inputs">
     <%= f.association :source, :collection => @app.klasses %>
- 		<%= f.input :typus, :collection => Kassociation.types %>
+		<%= f.input :typus, :collection => Kassociation.types %>
     <%= f.association :target, :collection => @app.klasses %>
- 		<%= f.input :description %>
+		<%= f.input :description %>
   </div>
 
-  <div class="actions">
-    <%= f.button :submit %>
+  <div class="clear">
+    <%= f.button :submit, :class => 'btn-primary' %>
   </div>
 <% end %>
 

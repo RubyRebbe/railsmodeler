@@ -1,27 +1,22 @@
+<h1>Class name: <%= @klass.name %></h1>
+<div>
+	Part of <%= link_to( @klass.app.name, app_path( @klass.app))  %><br/>
+	<strong>Description:</strong> <%= @klass.description %>
+</div>
 <p id="notice"><%= notice %></p>
 
-<table>
-<%= render :partial => "klass_entry", :locals => { :name => "Class name", :value => @klass.name } %>
-<%= render :partial => "klass_entry", :locals => { :name => "Description", :value => @klass.description } %>
-<%= render :partial => "klass_entry", 
-	:locals => { :name => "App", :value => link_to( @klass.app.name, app_path( @klass.app)) } %>
+<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } %>
 
-<%= render :partial => "klass_entry", :locals => { :name => "Attributes",
-	:value => (render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass } ) } %>
+<h2 class="span7">Associations</h2>
+<%= render :partial => "klass_kassociations", :locals => { :app => @app, :klass => @klass } %>
 
-<%= render :partial => "klass_entry", :locals => { :name => "Associations",
-	:value => (render :partial => "klass_kassociations", :locals => { :app => @app, :klass => @klass } ) } %>
-</table>
+<h2 class="span7">Model scaffold and source code</h2>
+<div class="span7 scaffold-block">
+	<strong> Scaffolding: </strong>
+	<code> <%= @klass.to_scaffold %> </code>
+</div>
 
-<br />
-<p style="background-color:cyan">
-<strong> Scaffolding: </strong>
-<br />
-<code> <%= @klass.to_scaffold %> </code>
-</p>
-
-<strong> Rails Model source code for <%= @klass.name %>: </strong>
-<p style= "border-style:solid; width:600px; background-color:pink">
+<div class="span7 codebox">
 <code>
 <% code = @klass.to_code %>
 <%= code[0] %> <br />
@@ -30,8 +25,4 @@
 <% } %>
 <%= code[2] %>
 </code>
-</p>
-
-<br /><br />
-<%= link_to 'Edit', edit_app_klass_path(@klass.app, @klass) %> |
-<%= link_to 'Back', app_path( @klass.app) %>
+</div>

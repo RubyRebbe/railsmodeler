@@ -1,30 +1,25 @@
-<table>
+<table class="span8 clean-borders">
 	<tr>
 		<th> Association signature </th>
 		<th> Operations </th>
 	</tr>
 
-<% app.kassociations.each { |assoc| %>
-	<tr> 
-		<td>
-			<%= link_to assoc.name, app_kassociation_path( app, assoc ) %> 
-		</td>
-		<td>
-			<%= link_to 'Show', app_kassociation_path( app, assoc ) %> ,
-			<%= link_to 'Edit', edit_app_kassociation_path(app, assoc) %> ,
-			<%= link_to 'Destroy', app_kassociation_path( app, assoc), 
-				confirm: 'Are you sure?', method: :delete %>
-		</td>
-	</tr>
-<% } %>
+	<% app.kassociations.each { |assoc| %>
+		<tr>
+			<td class="span5"><%= link_to assoc.name, app_kassociation_path( app, assoc ) %></td>
+			<td class="span3">
+				<%= link_to raw('<i class="icon-eye-open"></i> Show'), app_kassociation_path( app, assoc ) %> &nbsp;
+				<%= link_to raw('<i class="icon-edit"></i> Edit'), edit_app_kassociation_path( app, assoc ) %> &nbsp;
+				<%= link_to raw('<i class="icon-trash"></i> Destroy'), app_kassociation_path( app, assoc ), confirm: 'Are you sure?', method: :delete %>
+			</td>
+		</tr>
+	<% } %>
 
 	<% if app.id != nil then %>
-	<tr>
-		<td> </td>
-		<td> 
-			<%= link_to 'create a new association in this app', new_app_kassociation_path( app) %> 
-		</td>
-	</tr>
+		<tr>
+			<td class="span5"> </td>
+			<td class="span3"><%= link_to raw('<i class="icon-plus"></i> Create new association'), new_app_kassociation_path( app) %></td>
+		</tr>
 	<% end %>
 
 </table>

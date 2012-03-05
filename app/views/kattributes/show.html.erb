@@ -1,25 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1 class="span12">Attribute Detail: <%= @attribute.name %></h1>
+<p id="notice"><%= notice %></div>
 
-<p>
-  <b>Name:</b>
-  <%= @attribute.name %>
-</p>
-
-<p>
+<div class="span6 clear">
   <b>Typus:</b>
   <%= @attribute.typus %>
-</p>
-
-<p>
+	<br>
   <b>Description:</b>
   <%= @attribute.description %>
-</p>
-
-<p>
+	<br>
   <b>Klass:</b>
   <%= @attribute.klass.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_app_klass_kattribute_path(@app,  @klass, @attribute) %> |
-<%= link_to 'Back', app_klass_path( @app,  @klass) %>
+</div>

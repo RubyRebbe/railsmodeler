@@ -1,0 +1,72 @@
+@import "compass/css3";
+@import "compass/layout/sticky-footer";
+@import "compass/utilities/general/min";
+@import "compass/typography";
+
+body {background-color: #eee;}
+#container {
+	margin: 0 auto; @include min-height(420px);
+	@include apply-side-rhythm-border(left, 3px); @include apply-side-rhythm-border(right, 3px); border-color: #999;
+	background-color:#FFF; padding: 60px 20px 20px;
+	h1 {margin-bottom: 20px;}
+	h2 {margin-top: 20px;}
+	ul {list-style-position: inside; padding-left: 20px;}
+}
+.row {
+	padding-left: 20px;
+	div:first-child {margin-top: 0;}
+}
+.clear {clear: both;}
+
+div[class*="span"] {margin-top: 20px; margin-bottom: 20px;}
+.no-left {
+	& div, & h2, & ul {margin-left: 0;}
+}
+
+td, th { padding: 10px; }
+th:first-child {@include border-top-left-radius(10px);}
+th:last-child {@include border-top-right-radius(10px);}
+tr:last-child td:first-child {@include border-bottom-left-radius(10px);}
+tr:last-child td:last-child {@include border-bottom-right-radius(10px);}
+th {text-align: left; background-color: #0000bb; color:#fff; font-weight: bold;}
+td {background-color:#FFF; border: 1px solid #999;}
+table.clean-borders {
+	th {background-color: transparent; color: #000; border: none; border-bottom: 1px solid #999;}
+	th:last-child { text-align: right;}
+	td:first-child {border-left: none;}
+	td:last-child {border-right: none; text-align: right;}
+//	tr:last-child td {border: none;}
+}
+.nameCol {font-weight: bold;}
+
+footer {border-top: 1px solid #ccc; padding-top: 10px; padding-bottom: 10px; background-color: #E4EFFD;}
+
+#header-buttons {float: right;}
+.codebox, .scaffold-block {  @include rhythm-borders(2px); border-color: #999; padding: 3px 1px; }
+.codebox {background-color: pink;}
+.scaffold-block {
+	background-color:cyan;
+	b {font-size: 126%; padding-left: 10px;}
+}
+
+#app-details div {margin-bottom: 0;}
+.simple_form label {
+  float: left;
+  width: 75px; /* was 250px */
+  text-align: right;
+  margin: 2px 10px;
+}
+
+.simple_form div.inputs{
+  margin-bottom: 30px;
+}
+
+.simple_form input[type="text"], .simple_form textarea  {
+	width:  200px; /* was 300px */
+}
+
+.input textarea {
+	height:  5em;
+}
+
+

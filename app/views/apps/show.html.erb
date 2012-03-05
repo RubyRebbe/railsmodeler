@@ -1,49 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1 class="span12">App Details: <%= @app.name %></h1>
+<div class="row">
+	<div class="span8 clear">
+		<strong> Description:</strong> <%= @app.description %><br>
+		<strong>Uses:</strong> <%= @app.database %><br><br>
+		<%= link_to 'Edit', edit_app_path(@app), :class => 'btn btn-primary' %> 
+		<%= link_to 'Generator Code', summarize_app_path(@app), :class => 'btn btn-info' %>
+	</div>
+</div>
 
-<table>
-	<tr>
-		<td> <strong> App name </strong> </td>
-		<td>
-			<%= @app.name %> | 
-			<%= link_to 'show generated code', summarize_app_path(@app) %>
-		</td>
-	</tr>
+<div class="span12 hide" id="notice"><%= notice %></div>
 
-	<tr>
-		<td> <strong> Description </strong> </td>
-		<td>
-			<%= @app.description %>
-		</td>
-	</tr>
+<div class="row" id="app-details">
+	<div class="span8 scaffold-block">
+		<b>Scaffolding:</b> &nbsp;
+		<code>
+			<%= @app.to_scaffold %>
+		</code>
+	</div>
 
-	<tr>
-		<td> <strong> Database </strong> </td>
-		<td>
-			<%= @app.database %>
-		</td>
-	</tr>
+	<h2 class="span12 clear clearfix">Classes</h2>
+	<%= render :partial => "app_klasses", :locals => { :app => @app } %>
 
-	<tr>
-		<td> <strong> Classes </strong> </td>
-		<td>
-			<%= render :partial => "app_klasses", :locals => { :app => @app } %>
-		</td>
-	</tr>
+	<h2 class="span12 clear">Associations</h2>
+	<%= render :partial => "app_kassociations", :locals => { :app => @app } %>
 
-	<tr>
-		<td> <strong> Associations </strong> </td>
-		<td>
-			<%= render :partial => "app_kassociations", :locals => { :app => @app } %>
-		</td>
-	</tr>
-</table>
-
-<p style="background-color:cyan; width:500px">
-  <b>Scaffolding:</b>
-	<code>
-  <%= @app.to_scaffold %>
-	</code>
-</p>
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %>
+</div>

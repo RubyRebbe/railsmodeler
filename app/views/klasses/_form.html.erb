@@ -1,33 +1,13 @@
-<table>
-<%= simple_form_for( [ @app, @klass ]) do |f| %>
+<%= simple_form_for( [ @app, @klass ], :html => {:class => 'form-vertical' }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="inputs">
-		<tr>
-			<td> <strong> name </strong> </td>
-    	<td> <%= f.input :name, :label => '&nbsp' %> </td>
-		</tr>
-
-		<tr>
-			<td> <strong> description </strong> </td>
-    	<td> <%= f.input :description, :label => '&nbsp' %> </td>
-		</tr>
-
-		<tr>
-			<td> <strong> attributes </strong> </td>
-    	<td> 
-				<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass }  %> 
-			</td>
-		</tr>
+  <div class="form-inputs">
+		<%= f.input :name %>
+		<%= f.input :description %>
+		<%= render :partial => "klass_attributes", :locals => { :app => @app, :klass => @klass }  %>
   </div>
 
-  <div class="actions">
-		<tr>
-			<td> </td>
-    	<td> <%= f.button :submit %> </td>
-		</tr>
+  <div class="clear span4">
+    <%= f.button :submit, :class => 'btn-primary' %>
   </div>
 <% end %>
-</table>
-
-<br />
